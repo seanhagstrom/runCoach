@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const axios = require("axios");
-const { activitiesLink } = require("../utilityFuncs");
+const { activitiesLink } = require("../Utils/utilityFuncs");
 module.exports = router;
 
 // Get api/athlete
