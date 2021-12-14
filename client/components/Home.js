@@ -1,7 +1,7 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import activities, { getActivities } from "../store/activities";
+import { getActivities } from "../store/activities";
+import { Activities } from "./Activities";
 
 /**
  * COMPONENT
@@ -10,10 +10,16 @@ export const Home = (props) => {
   const [activities, setActivities] = useState(props);
   const { username } = props;
 
+  useEffect(() => {
+    setActivities(props.activities);
+  }, [props.activities]);
+
+  console.log("home activities: ", activities);
   return (
     <div>
       <h3>Welcome, {username}</h3>
       <button onClick={() => props.fetchActivities()}>Get Activities</button>
+      <Activities />
     </div>
   );
 };

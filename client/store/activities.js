@@ -9,9 +9,9 @@ const _setActivities = (activities) => ({
 
 export const getActivities = () => async (dispatch) => {
   try {
-    const data = await axios.get("/api/athlete/activities");
-    console.log(data);
-    dispatch(_setActivities(data));
+    const { data: activities } = await axios.get("/api/athlete/activities");
+    console.log(activities);
+    dispatch(_setActivities(activities));
   } catch (error) {
     console.error(error);
   }
