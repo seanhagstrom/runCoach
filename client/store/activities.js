@@ -10,7 +10,6 @@ const _setActivities = (activities) => ({
 export const getActivities = () => async (dispatch) => {
   try {
     const { data: activities } = await axios.get("/api/athlete/activities");
-    console.log(activities);
     dispatch(_setActivities(activities));
   } catch (error) {
     console.error(error);
@@ -22,8 +21,7 @@ const initialState = [];
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_ACTIVITIES:
-      console.log("activities reducer ", action.activities);
-      return [...state, action.activities];
+      return [...action.activities];
     default:
       return state;
   }
