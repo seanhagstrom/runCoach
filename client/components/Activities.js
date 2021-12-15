@@ -5,9 +5,15 @@ import Activity from "./Activity";
 
 export const Activities = (props) => {
   const [activities, setActivities] = useState([]);
-
+  // const stravaToken = props.location.search.slice(14);
+  // console.log("this is my token ", props.stravaToken);
+  const stravaToken = props.stravaToken;
   useEffect(() => {
-    props.fetchActivities();
+    if (stravaToken) {
+      props.fetchActivities();
+    } else {
+      return;
+    }
   }, []);
 
   useEffect(() => {

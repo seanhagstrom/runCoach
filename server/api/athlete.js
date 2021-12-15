@@ -16,9 +16,10 @@ router.get("/", async (req, res, next) => {
 // GET api/athlete/activities
 router.get("/activities", async (req, res, next) => {
   try {
+    const token = req.headers.referer.slice(40);
     const { data } = await axios.get(activitiesLink, {
       headers: {
-        Authorization: `Bearer ${process.env.STRAVA_ACCESS_TOKEN}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     res.send(data);

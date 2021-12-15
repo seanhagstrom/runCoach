@@ -23,29 +23,28 @@ app.get("/", (req, res) =>
 );
 
 app.get("/exchange_token", async ({ query: { code } }, res) => {
+  const ACCESS_TOKEN = "access_token";
   const body = {
     client_id: process.env.STRAVA_CLIENT_ID,
     client_secret: process.env.STRAVA_CLIENT_SECRET,
     code: code,
     grant_type: "authorization_code",
   };
-  // console.log("this is my code", code);
-  // const headers = {
-  //   Accept: "application/json, text/plain, */*",
-  //   "Content-Type": "application/json",
-  // };
+
+  const header = {
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+    },
+  };
   const { data } = await axios.post(
     `https://www.strava.com/oauth/token`,
     body,
-    {
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-    }
+    header
   );
 
   console.log("this is myAuth", data);
+  res.redirect(`http://localhost:8080/home?access_token=${data.access_token}`);
 });
 
 // static file-serving middleware
