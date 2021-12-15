@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const axios = require("axios");
 const { activitiesLink } = require("../Utils/utilityFuncs");
+// if (process.env.NODE_ENV !== "production") require("../secrets");
 module.exports = router;
 
 // Get api/athlete

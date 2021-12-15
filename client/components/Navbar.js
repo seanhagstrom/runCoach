@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { logout } from "../store";
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
@@ -19,7 +19,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         <div>
           {/* The navbar will show these links before you log in */}
           {/* <Link to='/login'>Login</Link> */}
-          <Link to='/signup'>SIGN IN WITH STRAVA</Link>
+          <a href='/auth'>SIGN IN WITH STRAVA</a>
         </div>
       )}
     </nav>

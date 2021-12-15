@@ -2,7 +2,7 @@ const axios = require("axios");
 
 if (process.env.NODE_ENV !== "production") require("../../secrets");
 
-console.log("logging out my environement variables: ", process.env);
+// console.log("logging out my environement variables: ", process.env);
 
 const authLink = "https://www.strava.com/oauth/token";
 
