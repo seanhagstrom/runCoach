@@ -19,3 +19,11 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+#map {
+  height: 300px;
+}
+
+.leaflet-container {
+  height: 300px;
+}
