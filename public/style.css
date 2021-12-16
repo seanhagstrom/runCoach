@@ -1,5 +1,12 @@
 body {
   font-family: sans-serif;
+  text-align: center;
+  /* display: flex;
+  justify-content: center; */
+}
+
+table {
+  display: inline-block;
 }
 
 a {
@@ -18,4 +25,12 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+#map {
+  height: 300px;
+}
+
+.leaflet-container {
+  height: 500px;
 }

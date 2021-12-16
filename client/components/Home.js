@@ -9,7 +9,9 @@ import Activities from "./Activities";
 export const Home = (props) => {
   // const [activities, setActivities] = useState(props);
   const { username } = props;
-
+  console.log(props);
+  const stravaToken = props.location.search.slice(14);
+  // console.log(stravaToken);
   // useEffect(() => {
   //   setActivities(props.activities);
   // }, [props.activities]);
@@ -17,9 +19,9 @@ export const Home = (props) => {
   // console.log("home activities: ", activities);
   return (
     <div>
-      <h3>Welcome, {username}</h3>
+      {/* <h3>Welcome, {username}</h3> */}
       {/* <button onClick={() => props.fetchActivities()}>Get Activities</button> */}
-      <Activities />
+      <Activities stravaToken={stravaToken} />
     </div>
   );
 };

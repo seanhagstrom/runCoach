@@ -7,6 +7,7 @@ export default function Activity(props) {
     <tr>
       <td>{activity.name}</td>
       <td>{(activity.distance / 1609).toFixed(2)} miles</td>
+      {/* <td>{activity.map.summary_polyline}</td> */}
     </tr>
   );
 }
