@@ -19,7 +19,7 @@ export const Home = (props) => {
   // console.log("home activities: ", activities);
   return (
     <div>
-      <h3>Welcome, {username}</h3>
+      {/* <h3>Welcome, {username}</h3> */}
       {/* <button onClick={() => props.fetchActivities()}>Get Activities</button> */}
       <Activities stravaToken={stravaToken} />
     </div>

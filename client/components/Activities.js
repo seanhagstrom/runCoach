@@ -56,29 +56,32 @@ export const Activities = (props) => {
   console.log(multiPolyline);
 
   const limeOptions = { color: "lime" };
+  const redOptions = { color: "red" };
+  const purpleOptions = { color: "purple" };
 
   getLocation();
   return (
     <div>
-      <h3>Activities will be here</h3>
-      <div id='map'>
-        <MapContainer
-          center={[35.94, -84.0722167]}
-          zoom={11}
-          scrollWheelZoom={false}
-        >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-          />
-          <Polyline pathOptions={limeOptions} positions={multiPolyline} />
-          {/* <Marker position={[51.505, -0.09]}>
+      <h3>Sign in to see your activities!</h3>
+      {/* <div id='map'> */}
+      <MapContainer
+        center={[35.94, -84.0722167]}
+        zoom={11}
+        scrollWheelZoom={false}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        />
+        <Polyline pathOptions={purpleOptions} positions={multiPolyline} />
+        {/* <Marker position={[51.505, -0.09]}>
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
           </Marker> */}
-        </MapContainer>
-      </div>
+      </MapContainer>
+      {/* </div> */}
+      <br></br>
       <table>
         <tbody>
           <tr>

@@ -1,5 +1,12 @@
 body {
   font-family: sans-serif;
+  text-align: center;
+  /* display: flex;
+  justify-content: center; */
+}
+
+table {
+  display: inline-block;
 }
 
 a {
@@ -25,5 +32,5 @@ form div {
 }
 
 .leaflet-container {
-  height: 300px;
+  height: 500px;
 }
