@@ -14,8 +14,7 @@ import polyUtil from "polyline-encoded";
 
 export const Activities = (props) => {
   const [activities, setActivities] = useState([]);
-  // const stravaToken = props.location.search.slice(14);
-  // console.log("this is my token ", props.stravaToken);
+
   const stravaToken = props.stravaToken;
   useEffect(() => {
     if (stravaToken) {
@@ -29,13 +28,6 @@ export const Activities = (props) => {
     setActivities(props.activities);
   }, [props.activities]);
 
-  // var map = L.map("map").setView([51.505, -0.09], 13);
-
-  // L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  //   attribution:
-  //     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  // }).addTo(map);
-
   function getLocation() {
     navigator.geolocation.getCurrentPosition(showPos);
   }
@@ -44,12 +36,9 @@ export const Activities = (props) => {
     return coords;
   }
 
-  console.log("activity 1 polyline ", props.activities);
-
   const multiPolyline = props.activities
-    .filter((activity) => activity.distance !== 0)
+    .filter((activity) => activity.map.summary_polyline !== null)
     .map((activity) => {
-      // console.log(polyUtil.decode(activity.map.summary_polyline));
       return polyUtil.decode(activity.map.summary_polyline);
     });
 
@@ -63,7 +52,6 @@ export const Activities = (props) => {
   return (
     <div>
       <h3>Sign in to see your activities!</h3>
-      {/* <div id='map'> */}
       <MapContainer
         center={[35.94, -84.0722167]}
         zoom={11}
@@ -80,7 +68,6 @@ export const Activities = (props) => {
             </Popup>
           </Marker> */}
       </MapContainer>
-      {/* </div> */}
       <br></br>
       <table>
         <tbody>
@@ -98,7 +85,6 @@ export const Activities = (props) => {
 };
 
 const mapState = (state) => ({
-  // username: state.auth.username,
   activities: state.activities,
 });
 
